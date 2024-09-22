@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b537cc9a-53ed-4b05-8ea6-f072bdbbd84d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     detail_stock_out.`kd_brg` AS detail_stock_out_kd_brg,
+     detail_stock_out.`item` AS detail_stock_out_item,
+     detail_stock_out.`nm_brg` AS detail_stock_out_nm_brg,
+    SUM( detail_stock_out.`qty`) AS detail_stock_out_qty
+FROM
+     `detail_stock_out` detail_stock_out
+GROUP BY
+detail_stock_out.`kd_brg`]]>
+	</queryString>
+	<field name="detail_stock_out_kd_brg" class="java.lang.String"/>
+	<field name="detail_stock_out_item" class="java.lang.String"/>
+	<field name="detail_stock_out_nm_brg" class="java.lang.String"/>
+	<field name="detail_stock_out_qty" class="java.math.BigDecimal"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#0099CC" uuid="f48d9589-2b58-45b9-a6a9-0d14b7ec5b98"/>
+				<staticText>
+					<reportElement x="296" y="20" width="279" height="43" forecolor="#FFFFFF" uuid="666d08c4-d855-4107-ba13-f46c09708c32"/>
+					<textElement textAlignment="Right">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Report Stock Out]]></text>
+				</staticText>
+				<image>
+					<reportElement x="20" y="0" width="196" height="69" uuid="c41d07bd-87a6-4cf2-a62a-2dda5b0c3f41"/>
+					<imageExpression><![CDATA["C:\\TUGAS_AKHIR\\program\\sistem inventory 2\\sistem_inventory\\web\\img\\1.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="0814ba5f-8468-44d1-b76f-b6334767e4dc"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="04dbd0d0-ad90-4b54-b93b-33af8a4bf0b0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="725f81b4-302a-4014-b2c2-6f82657ac41a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3c990633-e898-4c59-a0cf-65de85808c9e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="54653881-0ce0-405a-9147-18dfa0bfd3be"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="fcc6ba09-2cb1-4ca7-b338-31bfc7644d46"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="138" height="20" uuid="e03232a8-ecef-48df-9ec5-9fd07540bea8"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_stock_out_kd_brg}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="138" y="0" width="138" height="20" uuid="b1851a57-7fd8-42c5-86a6-11ad40656eb3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_stock_out_item}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="138" height="20" uuid="aa85bf27-58a5-485f-b1f7-c306bb350802"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_stock_out_nm_brg}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="0" width="138" height="20" uuid="bddd986a-77d7-4691-afde-43d03f59216c"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_stock_out_qty}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="ceb562ce-78d7-43b8-aa79-f0b15507871d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="c6acfd60-e680-4783-8fc9-cbc0ca4aeaa5"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="aabcfb2a-d661-437e-89e8-640948be63eb"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
